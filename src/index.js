@@ -4,8 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/main.css";
+import { socket } from "./socket";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+socket.connect();
+
 root.render(
   <React.StrictMode>
     <App />

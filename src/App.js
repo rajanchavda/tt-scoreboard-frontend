@@ -2,36 +2,35 @@ import "./App.css";
 import Mainboard from "./mainboard";
 import React, { useEffect, useRef, useState } from "react";
 import { socket } from "./socket";
-import { ConnectionManager } from "./components/ConnectionManager";
 
 function App() {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const fullScreenRef = useRef(null);
 
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  const [fooEvents, setFooEvents] = useState([]);
+
+  // const [isConnected, setIsConnected] = useState(socket.connected);
 
   useEffect(() => {
-    function onConnect() {
-      setIsConnected(true);
-    }
+    // function onConnect() {
+    //   // setIsConnected(true);
+    // }
 
-    function onDisconnect() {
-      setIsConnected(false);
-    }
+    // function onDisconnect() {
+    //   setIsConnected(false);
+    // }
 
-    function onFooEvent(value) {
-      setFooEvents((previous) => [...previous, value]);
-    }
+    // function onFooEvent(value) {
+    //   console.log('test',value);
+    // }
 
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
-    socket.on("foo", onFooEvent);
+    // socket.on("connect", onConnect);
+    // socket.on("disconnect", onDisconnect);
+    // socket.on("GameUpdate", onFooEvent);
 
     return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
-      socket.off("foo", onFooEvent);
+      // socket.off("connect", onConnect);
+      // socket.off("disconnect", onDisconnect);
+      // socket.off("GameUpdate", onFooEvent);
     };
   }, []);
 
@@ -77,7 +76,6 @@ function App() {
       className="bg-white flex items-center justify-center"
     >
       <Mainboard />
-      <ConnectionManager />
     </div>
   );
 }

@@ -11,9 +11,9 @@ function Scorecard({
   gameId,
   playerIndex,
 }) {
-  const [playerScore, setPlayerScore] = useState(score);
+  // const [playerScore, setPlayerScore] = useState(score);
   const handleLeftClick = () => {
-    setPlayerScore((prev) => prev + 1);
+    // setPlayerScore((prev) => prev + 1);
     let params = {
       player: playerIndex === 0 ? "player1" : "player2",
     };
@@ -26,7 +26,7 @@ function Scorecard({
   };
   const handleRightClick = (event) => {
     event.preventDefault();
-    setPlayerScore((prev) => prev - 1);
+    // setPlayerScore((prev) => prev - 1);
     let params = {
       player: playerIndex === 0 ? "player1" : "player2",
     };
@@ -58,7 +58,7 @@ function Scorecard({
           onContextMenu={handleRightClick}
           className={`${bgColor} flex justify-center items-center p-4 box-content h-96 w-96 rounded-lg shadow-lg`}
         >
-          <p className="text-[16em] text-white font-[600]">{playerScore}</p>
+          <p className="text-[16em] text-white font-[600]">{score}</p>
         </div>
         {/* <div
           className={`${bgColor} flex justify-center items-center ${
