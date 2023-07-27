@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { updateGame } from "../APIs/games";
 
 const EditableName = ({ initialName, playerIndex, gameId }) => {
@@ -13,6 +13,10 @@ const EditableName = ({ initialName, playerIndex, gameId }) => {
   const handleInputChange = (event) => {
     setName(event.target.value);
   };
+
+  useEffect(() => {
+    setName(initialName)
+  }, [initialName])
 
   const handleInputBlur = () => {
     setIsEditing(false);
