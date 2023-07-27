@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://tt-scoreboard-backend.onrender.com",
+  baseURL: process.env.REACT_APP_BASE_URI,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
