@@ -27,7 +27,6 @@ function Mainboard() {
     getGame().then((response) => {
       setPlayerData([response[0].player1, response[0].player2]);
       setGameId(response[0]._id);
-      console.log(response[0]);
     });
 
     // Connect with socket

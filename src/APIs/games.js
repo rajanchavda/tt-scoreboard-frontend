@@ -5,6 +5,5 @@ export function getGame() {
 }
 
 export function updateGame(gameId, data, params) {
-  console.log(gameId, data, params);
   return postData(`/game/update/${gameId}`, data, { ...params });
 }
