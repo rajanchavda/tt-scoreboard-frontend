@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { updateGame } from "../APIs/games";
+import { updateGame } from "../../APIs/games";
+import './editableName.css'
 
 const EditableName = ({ initialName, playerIndex, gameId }) => {
   const [name, setName] = useState(initialName);
@@ -26,9 +27,7 @@ const EditableName = ({ initialName, playerIndex, gameId }) => {
     let data = {
       name: name,
     };
-    updateGame(gameId, data, params).then((res) => {
-      console.log(res);
-    });
+    updateGame(gameId, data, params);
   };
 
   return (
@@ -40,6 +39,7 @@ const EditableName = ({ initialName, playerIndex, gameId }) => {
           onChange={handleInputChange}
           onBlur={handleInputBlur}
           autoFocus // Focus the input field when editing starts
+          className="w-[200px] max-w-[200px]"
         />
       ) : (
         <p onDoubleClick={handleDoubleClick}>{name}</p>

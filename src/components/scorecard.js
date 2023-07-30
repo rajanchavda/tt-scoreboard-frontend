@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import EditableName from "./editableName";
+import React from "react";
+import EditableName from "./editableName/editableName";
 import { updateGame } from "../APIs/games";
 
 function Scorecard({
@@ -20,9 +20,7 @@ function Scorecard({
     let data = {
       score: score + 1,
     };
-    updateGame(gameId, data, params).then((res) => {
-      console.log(res);
-    });
+    updateGame(gameId, data, params);
   };
   const handleRightClick = (event) => {
     event.preventDefault();
@@ -33,9 +31,7 @@ function Scorecard({
     let data = {
       score: score - 1,
     };
-    updateGame(gameId, data, params).then((res) => {
-      console.log(res);
-    });
+    updateGame(gameId, data, params);
   };
 
   const divStyle = {

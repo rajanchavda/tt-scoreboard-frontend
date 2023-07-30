@@ -7,3 +7,7 @@ export function getGame() {
 export function updateGame(gameId, data, params) {
   return postData(`/game/update/${gameId}`, data, { ...params });
 }
+
+export function updateSettings(gameId, settings) {
+  return postData(`/game/updateSettings/${gameId}`, settings);
+}
