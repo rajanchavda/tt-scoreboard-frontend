@@ -21,11 +21,15 @@ axiosClient.interceptors.response.use(
 
 // Function for GET request
 export async function getData(endpoint, params) {
+  const token = localStorage.getItem("token");
   try {
     const response = await axiosClient.get(endpoint, {
       params: params,
       paramsSerializer: {
         indexes: null, // by default: false
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
@@ -36,12 +40,13 @@ export async function getData(endpoint, params) {
 
 // Function for POST request
 export const postData = async (endpoint, data, params) => {
+  const token = localStorage.getItem("token");
   const config = {
     params: params,
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-    withCredentials: false,
   };
   try {
     const response = await axiosClient.post(endpoint, data, config);
